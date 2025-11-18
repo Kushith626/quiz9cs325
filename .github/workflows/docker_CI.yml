@@ -16,7 +16,7 @@ jobs:
         run: echo "Running Docker CI for $GITHUB_REPOSITORY"
 
       - name: Pull image from Docker Hub
-        run: docker pull YOUR_DOCKERHUB_USERNAME/YOUR_IMAGE_NAME:latest
+        run: docker pull kushithkonidela/text-analyzer:latest
 
       - name: Run tests inside container
         run: docker run --rm kushithkonidela/text-analyzer:latest
