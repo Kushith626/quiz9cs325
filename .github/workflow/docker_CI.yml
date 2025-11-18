@@ -1,0 +1,22 @@
+name: Docker CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-with-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      # (Optional) Shows which repo this action is running on
+      - name: Show repository info
+        run: echo "Running Docker CI for $GITHUB_REPOSITORY"
+
+      - name: Pull image from Docker Hub
+        run: docker pull YOUR_DOCKERHUB_USERNAME/YOUR_IMAGE_NAME:latest
+
+      - name: Run tests inside container
+        run: docker run --rm YOUR_DOCKERHUB_USERNAME/YOUR_IMAGE_NAME:latest
